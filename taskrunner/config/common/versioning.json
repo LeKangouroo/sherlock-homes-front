@@ -1,0 +1,23 @@
+{
+  "changelog": {
+    "hotfixesKeywords": [
+      "close",
+      "closed",
+      "closes",
+      "fix",
+      "fixed",
+      "fixes",
+      "hotfix",
+      "hotfixes",
+      "resolve",
+      "resolved",
+      "resolves"
+    ],
+    "featuresKeywords": [
+      "add",
+      "adds",
+      "feat",
+      "feature"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+extends _pug/layouts/default
+
+block pageVariables
+  - page.title = 'Accueil';
+
+block metasVariables
+  - metas.og._isEnabled = false;
+  - metas.twitter._isEnabled = false;
+
+block content
+  component(:is='currentSection')

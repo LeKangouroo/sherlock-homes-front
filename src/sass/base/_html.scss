@@ -1,0 +1,64 @@
+///////////////////////////////////////////////////////////////////
+// Device: Mobile
+///////////////////////////////////////////////////////////////////
+
+@include mobile-portrait-and-up
+{
+  html, body
+  {
+    background-color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4vw;
+  }
+  html.no-scroll
+  {
+    overflow: hidden;
+    position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+  }
+  body
+  {
+    overflow-x: hidden;
+  }
+}
+@include mobile-landscape-and-up
+{
+  html, body
+  {
+    font-size: 4vh;
+  }
+}
+
+///////////////////////////////////////////////////////////////////
+// Device: Tablet
+///////////////////////////////////////////////////////////////////
+
+@include tablet-portrait-and-up
+{
+  html, body
+  {
+    font-size: 2vw;
+  }
+}
+@include tablet-landscape-and-up
+{
+  html, body
+  {
+    font-size: 2vh;
+  }
+}
+
+///////////////////////////////////////////////////////////////////
+// Device: Desktop
+///////////////////////////////////////////////////////////////////
+
+@include desktop
+{
+  html, body
+  {
+    font-size: 14px;
+  }
+}

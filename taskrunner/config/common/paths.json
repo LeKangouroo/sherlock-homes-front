@@ -1,0 +1,76 @@
+{
+  "sources": {
+    "html": {
+      "default": [
+        "!src/html/_pug{,/**}",
+        "src/html/**/*.html"
+      ],
+      "watch": "src/html/**/*.html"
+    },
+    "images": "src/**/*.{jpg,png,gif}",
+    "instrumentedTests": "tests/instrumented-tests/specs/*.js",
+    "pug": {
+      "default": [
+        "!src/html/_pug{,/**}",
+        "src/html/**/*.pug"
+      ],
+      "watch": [
+        "src/html/**/*.pug",
+        "src/html/_pug/**/*"
+      ]
+    },
+    "js": {
+      "default": "src/js/*.js",
+      "watch": [
+        "!src/vuejs/**/*.scss",
+        "src/js/**/*.js",
+        "src/vuejs/**"
+      ]
+    },
+    "sass": {
+        "default": "src/sass/*.scss",
+        "watch": "src/**/*.scss"
+    },
+    "svg": "src/assets/images/icons/svg/*.svg",
+    "todos": [
+      "!src/vendors/**",
+      "src/**/*.{js,html,pug,scss,sass}"
+    ],
+    "unitTests": "tests/unit-tests/specs/*.js"
+  },
+  "builds": {
+    "css": {
+      "development": "tmp/css",
+      "distributable": "dist/css"
+    },
+    "html": {
+      "development": "tmp",
+      "distributable": "dist"
+    },
+    "images": {
+      "development": "tmp",
+      "distributable": "dist"
+    },
+    "js": {
+      "development": "tmp/js",
+      "distributable": "dist/js"
+    },
+    "svg": {
+      "development": "tmp/assets/images/sprites",
+      "distributable": "dist/assets/images/sprites"
+    },
+    "todos": {
+      "development": "tmp",
+      "distributable": "dist"
+    }
+  },
+  "static": {
+    "base": "src",
+    "source": [
+      "!src/**/*.{jpg,png,gif}",
+      "src/assets/**",
+      "src/vendors/**"
+    ],
+    "destination": "dist"
+  }
+}

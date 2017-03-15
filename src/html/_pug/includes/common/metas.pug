@@ -1,0 +1,63 @@
+//-////////////////////////////////////////////////////////////////////////////
+//- VARIABLES
+//-////////////////////////////////////////////////////////////////////////////
+
+-
+  var metas = {
+
+    organic: {
+
+      description: '',
+      keywords: ''
+    },
+    og: {
+      _isEnabled: true,
+
+      description: '',
+      image: '@@HTTP_ROOT_DIR/assets/images/socials/facebook/share.jpg',
+      imageType: 'image/jpeg',
+      locale: 'fr_FR',
+      siteName: '',
+      title: '',
+      type: 'website',
+      url: '@@HTTP_ROOT_DIR'
+    },
+    twitter: {
+      _isEnabled: true,
+
+      card: 'summary',
+      description: '',
+      image: '@@HTTP_ROOT_DIR/assets/images/socials/twitter/share.jpg',
+      title: '',
+      url: '@@HTTP_ROOT_DIR'
+    }
+  };
+
+block metasVariables
+
+//-////////////////////////////////////////////////////////////////////////////
+//- TEMPLATE
+//-////////////////////////////////////////////////////////////////////////////
+
+//- Organic metas
+meta(name='description', content=`${metas.organic.description}`)
+meta(name='keywords', content=`${metas.organic.keywords}`)
+
+//- Open Graph metas (Facebook)
+if metas.og._isEnabled
+  meta(property='og:description', content=`${metas.og.description}`)
+  meta(property='og:image:type', content=`${metas.og.imageType}`)
+  meta(property='og:image', content=`${metas.og.image}`)
+  meta(property='og:locale', content=`${metas.og.locale}`)
+  meta(property='og:site_name', content=`${metas.og.siteName}`)
+  meta(property='og:title', content=`${metas.og.title}`)
+  meta(property='og:type', content=`${metas.og.type}`)
+  meta(property='og:url', content=`${metas.og.url}`)
+
+//- Twitter metas
+if metas.twitter._isEnabled
+  meta(name='twitter:card', content=`${metas.twitter.card}`)
+  meta(name='twitter:description', content=`${metas.twitter.description}`)
+  meta(name='twitter:image', content=`${metas.twitter.image}`)
+  meta(name='twitter:title', content=`${metas.twitter.title}`)
+  meta(name='twitter:url', content=`${metas.twitter.url}`)

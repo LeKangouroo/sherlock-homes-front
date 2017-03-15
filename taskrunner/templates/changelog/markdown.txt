@@ -1,0 +1,14 @@
+# <% if (version) { %>VERSION <%- version %> <%}%>CHANGELOG (<%- datetime %>)
+<% if (commits.hotfixes.length > 0) { %>
+## Bug fixes:
+<% _.forEach(commits.hotfixes, function(hotfix) {%>
+* <%- hotfix %><%}); %>
+<% } if (commits.features.length > 0) { %>
+## New features:
+<% _.forEach(commits.features, function(feature) {%>
+* <%- feature %><%}); %>
+<% } if (commits.miscellaneous.length > 0) { %>
+## Miscellaneous:
+<% _.forEach(commits.miscellaneous, function(commit) {%>
+* <%- commit %><%}); %>
+<% } %>
