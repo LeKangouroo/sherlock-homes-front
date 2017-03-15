@@ -1,7 +1,17 @@
+import SearchStore from 'classes/search-store';
 import Taggle from 'taggle';
 
 export default {
 
+  methods: {
+
+    onSubmit(e) {
+
+      e.preventDefault();
+
+      SearchStore.setResults(['foo', 'bar']);
+    }
+  },
   data() {
 
     return {

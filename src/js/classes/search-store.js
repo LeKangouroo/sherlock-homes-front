@@ -4,6 +4,8 @@ class SearchStore extends AbstractObservable
 {
   constructor() {
 
+    super();
+
     this.state = {
       results: []
     };
@@ -14,3 +16,5 @@ class SearchStore extends AbstractObservable
     this.notifyObservers('results:change', results);
   }
 }
+
+export default new SearchStore();
