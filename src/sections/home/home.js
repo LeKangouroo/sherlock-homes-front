@@ -1,10 +1,10 @@
 import events from 'core/events';
-import exampleComponent from 'components/example/example.vue';
+import searchFormComponent from 'components/search-form/search-form.vue';
 
 export default {
 
   components: {
-    exampleComponent
+    searchFormComponent
   },
   mounted() {
 
