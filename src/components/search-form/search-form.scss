@@ -4,8 +4,24 @@
 
 @include mobile-portrait-and-up
 {
-  .c-search-form
+  .c-search-form-zipcodes
   {
+    position: relative;
+    height: auto;
+
+    .taggle_list
+    {
+      margin: 0;
+      padding: 0;
+      float: none;
+
+      &::after
+      {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
   }
 }
 @include mobile-landscape-and-up

@@ -54,6 +54,7 @@
     "selenium-webdriver": "3.0.0",
     "strip-loader": "0.1.2",
     "svg4everybody": "2.1.0",
+    "taggle": "1.11.2",
     "urijs": "1.18.4",
     "vinyl-ftp": "0.4.5",
     "vue": "2.1.0",
