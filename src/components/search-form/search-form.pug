@@ -1,1 +1,20 @@
-section.c-search-form search form
+form.c-search-form
+  div.form-group.c-search-form-field
+    label(for='maxPrice') Prix max &nbsp;
+    div.input-group
+      input#maxPrice.form-control(type='number', min='0', step='50')
+      div.input-group-addon €
+  div.form-group.c-search-form-field
+    label(for='minSurfaceArea') Surface min &nbsp;
+    div.input-group
+      input#minSurfaceArea.form-control(type='number', min='0', step='5')
+      div.input-group-addon m<sup>2</sup>
+  div.form-group.c-search-form-field
+    label(for='offerType') Type d'offre &nbsp;
+    select#offerType.form-control
+      option(value='rent', selected) Location
+      option(value='purchase') Achat
+  div.form-group.c-search-form-field
+    label(for='zipCodes') Codes postaux &nbsp;
+    input#zipCodes.form-control(type='text', placeholder='ex: 75001,75002')
+  button.btn.btn-primary(type='submit') Rechercher

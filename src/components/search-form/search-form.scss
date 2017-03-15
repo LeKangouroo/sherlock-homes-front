@@ -6,14 +6,12 @@
 {
   .c-search-form
   {
-    background: red;
   }
 }
 @include mobile-landscape-and-up
 {
   .c-search-form
   {
-    background: green;
   }
 }
 
@@ -25,14 +23,12 @@
 {
   .c-search-form
   {
-    background: blue;
   }
 }
 @include tablet-landscape-and-up
 {
   .c-search-form
   {
-    background: orange;
   }
 }
 
@@ -44,6 +40,5 @@
 {
   .c-search-form
   {
-    background: pink;
   }
 }

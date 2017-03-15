@@ -6,15 +6,13 @@
 {
   .s-home
   {
-    background: red;
+    @include outer-container;
+
+    margin-top: 40px;
   }
 }
 @include mobile-landscape-and-up
 {
-  .s-home
-  {
-    background: green;
-  }
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -23,17 +21,9 @@
 
 @include tablet-portrait-and-up
 {
-  .s-home
-  {
-    background: blue;
-  }
 }
 @include tablet-landscape-and-up
 {
-  .s-home
-  {
-    background: orange;
-  }
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -42,8 +32,4 @@
 
 @include desktop
 {
-  .s-home
-  {
-    background: pink;
-  }
 }
