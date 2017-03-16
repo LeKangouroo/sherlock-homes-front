@@ -1,11 +1,13 @@
 import events from 'core/events';
 import searchFormComponent from 'components/search-form/search-form.vue';
+import searchResultsComponent from 'components/search-results/search-results.vue';
 import SearchStore from 'classes/search-store';
 
 export default {
 
   components: {
-    searchFormComponent
+    searchFormComponent,
+    searchResultsComponent
   },
   mounted() {
 
