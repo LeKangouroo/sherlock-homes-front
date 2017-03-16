@@ -1,19 +1,19 @@
-form.c-search-form.ui.form(@submit='onSubmit')
+form.c-search-form.ui.form(:class='{"loading": isLoading}', @submit='onSubmit')
   div.field
     div.ui.right.labeled.input
-      input(type='number', name='maxPrice', min='0', step='50', placeholder='Prix max')
+      input(type='number', v-model='maxPrice', min='0', step='50', placeholder='Prix max')
       div.ui.label €
   div.field
     div.ui.right.labeled.input
-      input(type='number', name='minSurface', min='0', step='5', placeholder='Surface min')
+      input(type='number', v-model='minSurfaceArea', min='0', step='5', placeholder='Surface min')
       div.ui.label m#[sup 2]
   div.field
-    select.ui.dropdown(name='offerType')
-      option(selected, disabled) Type d'offre
+    select.ui.dropdown(v-model='offerType')
+      option(value='', disabled) Type d'offre
       option(value='rent') Location
       option(value='purchase') Achat
   div.field
-    input(type='text', name='zipCodes', placeholder='Code postal (ex : 75001)', maxlength='5', pattern='[0-9]{5}', @keydown.enter='onZipCodeEnter')
+    input(type='text', placeholder='Code postal (ex : 75001)', maxlength='5', pattern='[0-9]{5}', @keydown.enter='onZipCodeEnter')
   div.field
     div.c-search-form-zipcodes
       button.ui.label(type='button', v-for='(zipCode, index) in zipCodes', :data-index='index', @click='deleteZipCodeAt(index)')

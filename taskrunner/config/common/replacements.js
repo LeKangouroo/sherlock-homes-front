@@ -6,6 +6,10 @@ export default {
       {
         match: "CACHE_BUST",
         replacement: Date.now()
+      },
+      {
+        match: "SHERLOCK_HOMES_API_BASE_URL",
+        replacement: 'http://localhost:8080'
       }
     ],
     "development": [

@@ -1,5 +1,5 @@
 import SearchStore from 'classes/search-store';
-import isNumeric from 'validator/lib/isNumeric';
+import SherlockHomesOffers from 'webservices/sherlock-homes/offers';
 
 export default {
 
@@ -13,7 +13,24 @@ export default {
 
       e.preventDefault();
 
-      SearchStore.setResults(['foo', 'bar']);
+      this.isLoading = true;
+      SherlockHomesOffers
+        .find({
+          maxPrice: this.maxPrice,
+          minSurfaceArea: this.minSurfaceArea,
+          offerType: this.offerType,
+          zipCodes: this.zipCodes
+        })
+        .then((offers) => {
+
+          this.isLoading = false;
+          SearchStore.setResults(offers);
+        })
+        .catch((error) => {
+
+          this.isLoading = false;
+          alert(error.toString());
+        });
     },
     onZipCodeEnter(e) {
 
@@ -21,18 +38,21 @@ export default {
 
       const el = e.currentTarget;
 
-      if (!el.validity.valid)
+      if (!el.validity.valid || this.zipCodes.indexOf(el.value) > -1)
       {
         return;
       }
       this.zipCodes.push(el.value);
-
-      console.log(this.zipCodes);
+      el.value = '';
     }
   },
   data() {
 
     return {
+      isLoading: false,
+      maxPrice: null,
+      minSurfaceArea: null,
+      offerType: '',
       zipCodes: []
     };
   },
