@@ -6,21 +6,13 @@
 {
   .c-search-form-zipcodes
   {
-    position: relative;
-    height: auto;
+    display: flex;
+      flex-wrap: wrap;
+      align-items: center;
 
-    .taggle_list
+    .ui.label
     {
-      margin: 0;
-      padding: 0;
-      float: none;
-
-      &::after
-      {
-        content: '';
-        display: block;
-        clear: both;
-      }
+      margin: 0 2px 4px;
     }
   }
 }

@@ -23,6 +23,10 @@
   {
     overflow-x: hidden;
   }
+  input:invalid
+  {
+    border-color: $color-error !important;
+  }
 }
 @include mobile-landscape-and-up
 {

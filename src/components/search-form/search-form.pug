@@ -1,20 +1,23 @@
-form.c-search-form(@submit='onSubmit')
-  div.form-group.c-search-form-field
-    label(for='maxPrice') Prix max &nbsp;
-    div.input-group
-      input#maxPrice.form-control(type='number', min='0', step='50')
-      div.input-group-addon €
-  div.form-group.c-search-form-field
-    label(for='minSurfaceArea') Surface min &nbsp;
-    div.input-group
-      input#minSurfaceArea.form-control(type='number', min='0', step='5')
-      div.input-group-addon m<sup>2</sup>
-  div.form-group.c-search-form-field
-    label(for='offerType') Type d'offre &nbsp;
-    select#offerType.form-control
-      option(value='rent', selected) Location
+form.c-search-form.ui.form(@submit='onSubmit')
+  div.field
+    div.ui.right.labeled.input
+      input(type='number', name='maxPrice', min='0', step='50', placeholder='Prix max')
+      div.ui.label €
+  div.field
+    div.ui.right.labeled.input
+      input(type='number', name='minSurface', min='0', step='5', placeholder='Surface min')
+      div.ui.label m#[sup 2]
+  div.field
+    select.ui.dropdown(name='offerType')
+      option(selected, disabled) Type d'offre
+      option(value='rent') Location
       option(value='purchase') Achat
-  div.form-group.c-search-form-field
-    label Codes postaux &nbsp;
-    div#zipCodesTags.form-control.c-search-form-zipcodes
-  button.btn.btn-primary(type='submit') Rechercher
+  div.field
+    input(type='text', name='zipCodes', placeholder='Code postal (ex : 75001)', maxlength='5', pattern='[0-9]{5}', @keydown.enter='onZipCodeEnter')
+  div.field
+    div.c-search-form-zipcodes
+      button.ui.label(type='button', v-for='(zipCode, index) in zipCodes', :data-index='index', @click='deleteZipCodeAt(index)')
+        span {{zipCode}}
+        i.delete.icon
+  div.field
+    button.ui.button(type='submit') Rechercher
