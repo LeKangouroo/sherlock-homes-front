@@ -1,1 +1,18 @@
-section.c-search-results search-results component content
+section.c-search-results
+  table.ui.sortable.celled.table
+    thead
+      tr
+        th Prix
+        th Honoraires
+        th Surface
+        th Meublé
+        th Code Postal
+        th URL de l'offre
+    tbody
+      tr(v-for='offer in offers')
+        td {{offer.price}}
+        td {{offer.agencyFees}}
+        td {{offer.surfaceArea}}
+        td {{offer.isFurnished ? 'OUI' : 'NON'}}
+        td {{offer.zipCode}}
+        td: a(:href='offer.url') {{offer.url}}

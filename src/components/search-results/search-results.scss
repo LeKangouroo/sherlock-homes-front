@@ -6,14 +6,12 @@
 {
   .c-search-results
   {
-    background: red;
   }
 }
 @include mobile-landscape-and-up
 {
   .c-search-results
   {
-    background: green;
   }
 }
 
@@ -25,14 +23,12 @@
 {
   .c-search-results
   {
-    background: blue;
   }
 }
 @include tablet-landscape-and-up
 {
   .c-search-results
   {
-    background: orange;
   }
 }
 
@@ -44,6 +40,5 @@
 {
   .c-search-results
   {
-    background: pink;
   }
 }
