@@ -11,7 +11,7 @@ form.c-search-form.ui.form(:class='{"loading": isLoading}', @submit='onSubmit')
     select.ui.dropdown(v-model='offerType')
       option(value='', disabled) Type d'offre
       option(value='rent') Location
-      option(value='purchase') Achat
+      option(value='', disabled) Achat (prochainement)
   div.field
     input(type='text', placeholder='Saisissez un code postal et appuyez sur "Entrer"', maxlength='5', pattern='[0-9]{5}', @keydown.enter='onZipCodeEnter')
   div.field
