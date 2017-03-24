@@ -13,7 +13,7 @@ form.c-search-form.ui.form(:class='{"loading": isLoading}', @submit='onSubmit')
       option(value='rent') Location
       option(value='purchase') Achat
   div.field
-    input(type='text', placeholder='Code postal (ex : 75001)', maxlength='5', pattern='[0-9]{5}', @keydown.enter='onZipCodeEnter')
+    input(type='text', placeholder='Saisissez un code postal et appuyez sur "Entrer"', maxlength='5', pattern='[0-9]{5}', @keydown.enter='onZipCodeEnter')
   div.field
     div.c-search-form-zipcodes
       button.ui.label(type='button', v-for='(zipCode, index) in zipCodes', :data-index='index', @click='deleteZipCodeAt(index)')
