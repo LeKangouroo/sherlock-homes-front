@@ -1,12 +1,13 @@
 form.c-search-form.ui.form(:class='{"loading": isLoading}', @submit='onSubmit')
-  div.field
-    div.ui.right.labeled.input
-      input(type='number', v-model='maxPrice', min='0', step='50', placeholder='Prix max')
-      div.ui.label €
-  div.field
-    div.ui.right.labeled.input
-      input(type='number', v-model='minSurfaceArea', min='0', step='5', placeholder='Surface min')
-      div.ui.label m#[sup 2]
+  div.two.fields
+    div.field
+      div.ui.right.labeled.input
+        input(type='number', v-model='maxPrice', min='0', step='50', placeholder='Prix max')
+        div.ui.label €
+    div.field
+      div.ui.right.labeled.input
+        input(type='number', v-model='minSurfaceArea', min='0', step='5', placeholder='Surface min')
+        div.ui.label m#[sup 2]
   div.field
     select.ui.dropdown(v-model='offerType')
       option(value='', disabled) Type d'offre
@@ -21,15 +22,14 @@ form.c-search-form.ui.form(:class='{"loading": isLoading}', @submit='onSubmit')
         i.delete.icon
   div.fields
     div.field
-      button.ui.button(type='submit') Rechercher
+      button.ui.brown.button(type='submit')
+        i.icon.search
+        | Rechercher
     div.field
-      div.c-search-form-download-dropdown.ui.dropdown.button(v-show='isResults')
+      div.c-search-form-download-dropdown.ui.dropdown.black.button(v-show='isResults')
+        i.icon.download
         div.text Télécharger
         i.dropdown.icon
         div.menu
-          a.item(:href='downloadLinks.csv', download="export.csv")
-            i.icon.download
-            | Au format CSV
-          a.item(:href='downloadLinks.json', download="export.json")
-            i.icon.download
-            | Au format JSON
+          a.item(:href='downloadLinks.csv', download="export.csv") Au format CSV
+          a.item(:href='downloadLinks.json', download="export.json") Au format JSON

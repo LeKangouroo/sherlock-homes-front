@@ -3,3 +3,10 @@
  * The header, footer and navigation bar are NOT basic layout elements.
  * For complex elements, create a VueJS component in the src/vuejs/components/ directory instead.
  */
+
+#app
+{
+  background: url('../assets/images/common/background.jpg') center center no-repeat;
+  background-size: cover;
+  height: 100%;
+}

@@ -76,6 +76,6 @@ export default {
       this.downloadLinks.json = URL.createObjectURL(jsonBlob);
       this.downloadLinks.csv = URL.createObjectURL(csvBlob);
     });
-    $(this.$el.querySelector('.c-search-form-download-dropdown')).dropdown()
+    $(this.$el.querySelector('.c-search-form-download-dropdown')).dropdown({ action: 'select' });
   }
 };

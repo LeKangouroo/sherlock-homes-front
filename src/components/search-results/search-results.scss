@@ -23,6 +23,10 @@
 {
   .c-search-results
   {
+    th
+    {
+      color: #DEDEDE !important;
+    }
   }
 }
 @include tablet-landscape-and-up

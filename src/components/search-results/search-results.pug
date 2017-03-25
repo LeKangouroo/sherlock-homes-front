@@ -1,5 +1,5 @@
 section.c-search-results
-  table.ui.sortable.celled.striped.table
+  table.ui.sortable.celled.striped.inverted.table
     thead
       tr
         th(:class='{"sorted": sortKey === "price", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("price")') Prix
