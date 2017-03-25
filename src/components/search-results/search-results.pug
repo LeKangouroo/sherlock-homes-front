@@ -2,17 +2,17 @@ section.c-search-results
   table.ui.sortable.celled.table
     thead
       tr
-        th Prix
-        th Honoraires
-        th Surface
-        th Meublé
-        th Code Postal
-        th URL de l'offre
+        th(:class='{"is-active": sortKey === "price" }', @click='onHeadCellClick("price")') Prix
+        th(:class='{"is-active": sortKey === "surfaceArea" }', @click='onHeadCellClick("surfaceArea")') Surface
+        th(:class='{"is-active": sortKey === "isFurnished" }', @click='onHeadCellClick("isFurnished")') Meublé
+        th(:class='{"is-active": sortKey === "agencyFees" }', @click='onHeadCellClick("agencyFees")') Honoraires
+        th(:class='{"is-active": sortKey === "zipCode" }', @click='onHeadCellClick("zipCode")') Code Postal
+        th(:class='{"is-active": sortKey === "url" }', @click='onHeadCellClick("url")') URL de l'offre
     tbody
-      tr(v-for='offer in offers')
+      tr(v-for='offer in displayedOffers')
         td {{offer.price}}
-        td {{offer.agencyFees}}
         td {{offer.surfaceArea}}
         td {{offer.isFurnished ? 'OUI' : 'NON'}}
+        td {{offer.agencyFees}}
         td {{offer.zipCode}}
         td: a(:href='offer.url', target='_blank') {{offer.url}}
