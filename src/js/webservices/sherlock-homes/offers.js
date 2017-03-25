@@ -15,9 +15,13 @@ class SherlockHomesOffers
 
           if (!response.isOK())
           {
-            reject(new Error('invalid server response'));
+            return reject(new Error('invalid server response'));
           }
-          resolve(response.json());
+          if (response.getStatus() === 204)
+          {
+            return resolve([]);
+          }
+          return resolve(response.json());
         })
         .catch((error) => reject(error));
     });

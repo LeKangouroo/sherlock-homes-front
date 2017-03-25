@@ -25,7 +25,14 @@ export default {
         .then((offers) => {
 
           this.isLoading = false;
-          SearchStore.setResults(offers);
+          if (offers.length === 0)
+          {
+            alert('Aucune offre trouvée.');
+          }
+          else
+          {
+            SearchStore.setResults(offers);
+          }
         })
         .catch((error) => {
 
