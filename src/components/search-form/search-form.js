@@ -1,3 +1,4 @@
+import json2csv from 'json2csv';
 import SearchStore from 'classes/search-store';
 import SherlockHomesOffers from 'webservices/sherlock-homes/offers';
 
@@ -49,7 +50,12 @@ export default {
   data() {
 
     return {
+      downloadLinks: {
+        csv: null,
+        json: null
+      },
       isLoading: false,
+      isResults: false,
       maxPrice: null,
       minSurfaceArea: null,
       offerType: '',
@@ -59,5 +65,17 @@ export default {
   mounted() {
 
     console.log('search-form component mounted');
+    SearchStore.addObserver('results:change', (results) => {
+
+      const csv = json2csv({ data: results, fields: Object.keys(results[0]), del: ';' });
+      const csvBlob = new Blob([csv], { type: 'text/csv' });
+      const json = JSON.stringify(results);
+      const jsonBlob = new Blob([json], { type: 'application/json' });
+
+      this.isResults = true;
+      this.downloadLinks.json = URL.createObjectURL(jsonBlob);
+      this.downloadLinks.csv = URL.createObjectURL(csvBlob);
+    });
+    $(this.$el.querySelector('.c-search-form-download-dropdown')).dropdown()
   }
 };

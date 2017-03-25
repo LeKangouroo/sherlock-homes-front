@@ -19,5 +19,17 @@ form.c-search-form.ui.form(:class='{"loading": isLoading}', @submit='onSubmit')
       button.ui.label(type='button', v-for='(zipCode, index) in zipCodes', :data-index='index', @click='deleteZipCodeAt(index)')
         span {{zipCode}}
         i.delete.icon
-  div.field
-    button.ui.button(type='submit') Rechercher
+  div.fields
+    div.field
+      button.ui.button(type='submit') Rechercher
+    div.field
+      div.c-search-form-download-dropdown.ui.dropdown.button(v-show='isResults')
+        div.text Télécharger
+        i.dropdown.icon
+        div.menu
+          a.item(:href='downloadLinks.csv', download="export.csv")
+            i.icon.download
+            | Au format CSV
+          a.item(:href='downloadLinks.json', download="export.json")
+            i.icon.download
+            | Au format JSON
