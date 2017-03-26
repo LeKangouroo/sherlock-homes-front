@@ -6,10 +6,6 @@ export default {
       {
         match: "CACHE_BUST",
         replacement: Date.now()
-      },
-      {
-        match: "SHERLOCK_HOMES_API_BASE_URL",
-        replacement: 'http://localhost:8080'
       }
     ],
     "development": [
@@ -20,6 +16,10 @@ export default {
       {
         match: "HTTP_ROOT_DIR",
         replacement: ""
+      },
+      {
+        match: "SHERLOCK_HOMES_API_BASE_URL",
+        replacement: 'http://localhost:8080'
       }
     ],
     "pre-production": [
@@ -40,6 +40,10 @@ export default {
       {
         match: "HTTP_ROOT_DIR",
         replacement: ""
+      },
+      {
+        match: "SHERLOCK_HOMES_API_BASE_URL",
+        replacement: 'http://sherlock-homes.io:8080'
       }
     ]
   }
