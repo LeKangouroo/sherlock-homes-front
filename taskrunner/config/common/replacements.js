@@ -19,7 +19,7 @@ export default {
       },
       {
         match: "SHERLOCK_HOMES_API_BASE_URL",
-        replacement: 'http://localhost:8080'
+        replacement: 'ws://localhost:8080'
       }
     ],
     "pre-production": [
@@ -43,7 +43,7 @@ export default {
       },
       {
         match: "SHERLOCK_HOMES_API_BASE_URL",
-        replacement: 'http://sherlock-homes.io:8080'
+        replacement: 'ws://sherlock-homes.io:8080'
       }
     ]
   }

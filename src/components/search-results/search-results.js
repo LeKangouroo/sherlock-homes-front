@@ -15,7 +15,7 @@ export default {
   mounted() {
 
     console.log('search-results component mounted');
-    SearchStore.addObserver('results:change', (results) => {
+    SearchStore.addObserver('results:update', (results) => {
 
       this.offers = results;
       this.sortOffers();
