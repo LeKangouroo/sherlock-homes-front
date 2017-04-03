@@ -22,12 +22,8 @@ export default {
     });
     SearchStore.addObserver('clear', () => {
 
-      debugger;
-
       this.displayedOffers = [];
       this.offers = [];
-
-      debugger;
     });
   },
   methods: {
