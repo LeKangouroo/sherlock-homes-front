@@ -20,6 +20,15 @@ export default {
       this.offers = results;
       this.sortOffers();
     });
+    SearchStore.addObserver('clear', () => {
+
+      debugger;
+
+      this.displayedOffers = [];
+      this.offers = [];
+
+      debugger;
+    });
   },
   methods: {
 

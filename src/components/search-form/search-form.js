@@ -29,6 +29,8 @@ export default {
 
       e.preventDefault();
 
+      SearchStore.clear();
+
       this.isLoading = true;
 
       const searchCriteria = {
