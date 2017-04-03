@@ -20,6 +20,11 @@ export default {
       this.offers = results;
       this.sortOffers();
     });
+    SearchStore.addObserver('clear', () => {
+
+      this.displayedOffers = [];
+      this.offers = [];
+    });
   },
   methods: {
 

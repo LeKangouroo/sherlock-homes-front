@@ -15,6 +15,7 @@ export default {
       isResults: false,
       maxPrice: null,
       minSurfaceArea: null,
+      offersAPI: null,
       offerType: '',
       zipCodes: []
     };
@@ -29,6 +30,8 @@ export default {
 
       e.preventDefault();
 
+      SearchStore.clear();
+
       this.isLoading = true;
 
       const searchCriteria = {
@@ -38,17 +41,7 @@ export default {
         zipCodes: this.zipCodes
       };
 
-      const api = new SherlockHomesOffersAPI();
-
-      api.addObserver('new-results-count', (count) => {
-
-        SearchStore.increaseFoundResults(count);
-      });
-      api.addObserver('offer-found', (offer) => {
-
-        SearchStore.addResult(offer);
-      });
-      api.find(searchCriteria).then((offers) => {
+      this.offersAPI.find(searchCriteria).then((offers) => {
 
         this.isLoading = false;
 
@@ -92,6 +85,19 @@ export default {
   mounted() {
 
     console.log('search-form component mounted');
+
     $(this.$el.querySelector('.c-search-form-download-dropdown')).dropdown({ action: 'select' });
+
+    this.offersAPI = new SherlockHomesOffersAPI();
+
+    this.offersAPI.addObserver('new-results-count', function onNotification(count) {
+
+      SearchStore.increaseFoundResults(count);
+    });
+
+    this.offersAPI.addObserver('offer-found', function onNotification(offer) {
+
+      SearchStore.addResult(offer);
+    });
   }
 };
