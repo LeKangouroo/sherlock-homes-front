@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+import 'numeral/locales/fr';
 import orderBy from 'lodash/orderBy';
 import SearchStore from 'classes/search-store';
 
@@ -12,6 +14,10 @@ export default {
       offers: []
     };
   },
+  beforeCreate() {
+
+    numeral.locale('fr');
+  },
   mounted() {
 
     console.log('search-results component mounted');
@@ -25,6 +31,17 @@ export default {
       this.displayedOffers = [];
       this.offers = [];
     });
+  },
+  filters: {
+
+    formatPrice(price)
+    {
+      return numeral(price).format('0,0[.]00');
+    },
+    formatNumber(number)
+    {
+      return numeral(number).format('0,0[.]0');
+    }
   },
   methods: {
 
