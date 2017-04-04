@@ -30,8 +30,14 @@ export default {
 
     onHeadCellClick(name)
     {
-      this.sortKey = name;
-      this.sortOrder = (this.sortOrder === 'asc') ? 'desc' : 'asc';
+      if (name === this.sortKey)
+      {
+        this.sortOrder = (this.sortOrder === 'asc') ? 'desc' : 'asc';
+      }
+      else
+      {
+        this.sortKey = name;
+      }
       this.sortOffers();
     },
     sortOffers()
