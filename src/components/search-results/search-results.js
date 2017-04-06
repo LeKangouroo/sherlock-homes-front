@@ -9,6 +9,9 @@ export default {
 
     return {
       displayedOffers: [],
+      foundCount: 0,
+      isLoading: false,
+      processedCount: 0,
       sortKey: 'price',
       sortOrder: 'asc',
       offers: []
@@ -21,15 +24,30 @@ export default {
   mounted() {
 
     console.log('search-results component mounted');
+    SearchStore.addObserver('search:start', () => {
+
+      this.isLoading = true;
+    });
+    SearchStore.addObserver('search:end', () => {
+
+      this.sortOffers();
+      this.isLoading = false;
+    });
+    SearchStore.addObserver('progress:update', (progress) => {
+
+      this.foundCount = progress.found;
+      this.processedCount = progress.processed;
+    });
     SearchStore.addObserver('results:update', (results) => {
 
       this.offers = results;
-      this.sortOffers();
     });
     SearchStore.addObserver('clear', () => {
 
       this.displayedOffers = [];
+      this.foundCount = 0;
       this.offers = [];
+      this.processedCount = 0;
     });
   },
   filters: {

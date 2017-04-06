@@ -8,6 +8,11 @@
   {
     background: rgba(#FFF, 0.8);
     height: 100%;
+
+    .c-search-results
+    {
+      min-height: 100%;
+    }
   }
   .s-home-container
   {

@@ -4,8 +4,41 @@
 
 @include mobile-portrait-and-up
 {
-  .c-search-results
+  .c-search-results.is-loading
   {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+
+    .c-search-results-loader
+    {
+      display: block;
+    }
+  }
+  .c-search-results-loader
+  {
+    display: none;
+  }
+  .c-search-results-loader-title
+  {
+    margin-bottom: 3rem;
+
+    font-size: 2rem;
+    text-align: center;
+  }
+  .c-search-results-loader-text
+  {
+    color: $color-brand-1;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .c-search-results-table
+  {
+    th
+    {
+      color: #DEDEDE !important;
+    }
   }
 }
 @include mobile-landscape-and-up
@@ -23,10 +56,6 @@
 {
   .c-search-results
   {
-    th
-    {
-      color: #DEDEDE !important;
-    }
   }
 }
 @include tablet-landscape-and-up
