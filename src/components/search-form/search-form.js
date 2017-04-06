@@ -65,7 +65,7 @@ export default {
 
         console.error(error);
 
-        alert(error.toString());
+        alert(error.message);
       });
     },
     onZipCodeEnter(e) {

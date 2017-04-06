@@ -15,7 +15,7 @@ class SherlockHomesOffersAPI extends AbstractObservable
 
         if (message.type === 'error')
         {
-          reject(new Error(message.data));
+          reject(message.data);
           ws.removeEventListener('message', onMessage);
         }
         else if (message.type === 'find-offers:complete')
