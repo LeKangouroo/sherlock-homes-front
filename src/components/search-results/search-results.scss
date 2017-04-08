@@ -21,17 +21,39 @@
   }
   .c-search-results-loader-title
   {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-align: center;
   }
-  .c-search-results-loader-text
+  .c-search-results-loader-progress
   {
-    color: $color-brand-1;
-    font-size: 4rem;
-    font-weight: bold;
+    display: flex;
+      align-items: flex-start;
+      justify-content: center;
+  }
+  .c-search-results-loader-progress-item
+  {
+    margin-left: 2rem;
     text-align: center;
+
+    &:first-child
+    {
+      margin-left: 0;
+    }
+    span
+    {
+      display: block;
+    }
+    strong
+    {
+      display: block;
+      margin-bottom: 2rem;
+
+      color: $color-brand-1;
+      font-size: 4rem;
+      font-weight: bold;
+    }
   }
   .c-search-results-table
   {

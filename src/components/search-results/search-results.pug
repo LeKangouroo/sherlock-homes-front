@@ -1,7 +1,13 @@
 section.c-search-results(:class='{"is-loading": isLoading}')
   div.c-search-results-loader
     div.c-search-results-loader-title Chargement en cours
-    div.c-search-results-loader-text {{processedCount}} / {{foundCount}}
+    div.c-search-results-loader-progress
+      div.c-search-results-loader-progress-item
+        strong {{foundCount}}
+        span Offres trouvées
+      div.c-search-results-loader-progress-item
+        strong {{processedCount}}
+        span Offres analysées
   table.c-search-results-table.ui.sortable.celled.striped.inverted.fixed.table(v-if='displayedOffers.length > 0')
     thead
       tr.center.aligned
