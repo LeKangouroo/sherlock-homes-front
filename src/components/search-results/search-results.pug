@@ -16,6 +16,7 @@ section.c-search-results(:class='{"is-loading": isLoading}')
         th(:class='{"sorted": sortKey === "isFurnished", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("isFurnished")') Meublé
         th(:class='{"sorted": sortKey === "agencyFees", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("agencyFees")') Honoraires (en €)
         th(:class='{"sorted": sortKey === "zipCode", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("zipCode")') Code Postal
+        th(:class='{"sorted": sortKey === "source", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("source")') Source
         th Lien vers l'offre
     tbody
       tr(v-for='offer in displayedOffers')
@@ -24,4 +25,5 @@ section.c-search-results(:class='{"is-loading": isLoading}')
         td {{offer.isFurnished ? 'OUI' : 'NON'}}
         td.right.aligned {{offer.agencyFees | formatPrice}}
         td {{offer.zipCode}}
+        td {{offer.source}}
         td: a(:href='offer.url', target='_blank') Voir l'offre
