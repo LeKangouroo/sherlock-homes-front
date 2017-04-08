@@ -25,6 +25,7 @@ class SherlockHomesOffersAPI extends AbstractObservable
         }
         else if (message.type === 'find-offers:new-results-count')
         {
+          // TODO: envoyer coté serveur la bonne valeur. Il faut envoyer le nombre total d'offres au lieu des nouveaux seulement
           self.notifyObservers('new-results-count', message.data);
         }
         else if (message.type === 'find-offers:offer-found')

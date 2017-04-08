@@ -37,6 +37,14 @@ class SearchStore extends AbstractObservable
     this.state.progress.found += count;
     this.notifyObservers('progress:update', this.state.progress);
   }
+  startSearch()
+  {
+    this.notifyObservers('search:start');
+  }
+  endSearch()
+  {
+    this.notifyObservers('search:end');
+  }
 }
 
 export default new SearchStore();

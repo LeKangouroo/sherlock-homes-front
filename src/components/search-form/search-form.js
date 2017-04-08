@@ -31,6 +31,7 @@ export default {
       e.preventDefault();
 
       SearchStore.clear();
+      SearchStore.startSearch();
 
       this.isLoading = true;
 
@@ -44,6 +45,8 @@ export default {
       this.offersAPI.find(searchCriteria).then((offers) => {
 
         this.isLoading = false;
+
+        SearchStore.endSearch();
 
         if (offers.length === 0)
         {
