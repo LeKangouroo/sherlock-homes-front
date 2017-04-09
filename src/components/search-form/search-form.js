@@ -68,6 +68,8 @@ export default {
 
         console.error(error);
 
+        SearchStore.endSearch();
+
         alert(error.message);
       });
     },
