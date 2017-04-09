@@ -1,7 +1,7 @@
 {
   "name": "sherlock-homes-front",
   "description": "The front end for the Sherlock Homes search engine",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Itadakimas",
   "engines": {
     "node": "6.7.*"
