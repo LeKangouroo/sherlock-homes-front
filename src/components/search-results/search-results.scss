@@ -4,8 +4,63 @@
 
 @include mobile-portrait-and-up
 {
-  .c-search-results
+  .c-search-results.is-loading
   {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+
+    .c-search-results-loader
+    {
+      display: block;
+    }
+  }
+  .c-search-results-loader
+  {
+    display: none;
+  }
+  .c-search-results-loader-title
+  {
+    margin-bottom: 4rem;
+
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  .c-search-results-loader-progress
+  {
+    display: flex;
+      align-items: flex-start;
+      justify-content: center;
+  }
+  .c-search-results-loader-progress-item
+  {
+    margin-left: 2rem;
+    text-align: center;
+
+    &:first-child
+    {
+      margin-left: 0;
+    }
+    span
+    {
+      display: block;
+    }
+    strong
+    {
+      display: block;
+      margin-bottom: 2rem;
+
+      color: $color-brand-1;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+  }
+  .c-search-results-table
+  {
+    th
+    {
+      color: #DEDEDE !important;
+    }
   }
 }
 @include mobile-landscape-and-up
@@ -23,10 +78,6 @@
 {
   .c-search-results
   {
-    th
-    {
-      color: #DEDEDE !important;
-    }
   }
 }
 @include tablet-landscape-and-up

@@ -21,6 +21,13 @@ class SearchStore extends AbstractObservable
     this.notifyObservers('results:update', this.state.results);
     this.notifyObservers('progress:update', this.state.progress);
   }
+  clear()
+  {
+    this.state.progress.found = 0;
+    this.state.progress.processed = 0;
+    this.state.results = [];
+    this.notifyObservers('clear');
+  }
   getProgress()
   {
     return this.state.progress;
@@ -29,6 +36,14 @@ class SearchStore extends AbstractObservable
   {
     this.state.progress.found += count;
     this.notifyObservers('progress:update', this.state.progress);
+  }
+  startSearch()
+  {
+    this.notifyObservers('search:start');
+  }
+  endSearch()
+  {
+    this.notifyObservers('search:end');
   }
 }
 

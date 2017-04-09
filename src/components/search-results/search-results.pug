@@ -1,18 +1,29 @@
-section.c-search-results
-  table.ui.sortable.celled.striped.inverted.table
+section.c-search-results(:class='{"is-loading": isLoading}')
+  div.c-search-results-loader
+    div.c-search-results-loader-title Chargement en cours
+    div.c-search-results-loader-progress
+      div.c-search-results-loader-progress-item
+        strong {{foundCount}}
+        span Offres trouvées
+      div.c-search-results-loader-progress-item
+        strong {{processedCount}}
+        span Offres analysées
+  table.c-search-results-table.ui.sortable.celled.striped.inverted.fixed.table(v-if='displayedOffers.length > 0')
     thead
-      tr
-        th(:class='{"sorted": sortKey === "price", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("price")') Prix
-        th(:class='{"sorted": sortKey === "surfaceArea", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("surfaceArea")') Surface
+      tr.center.aligned
+        th(:class='{"sorted": sortKey === "price", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("price")') Prix (en €)
+        th(:class='{"sorted": sortKey === "surfaceArea", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("surfaceArea")') Surface (en m#[sup 2])
         th(:class='{"sorted": sortKey === "isFurnished", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("isFurnished")') Meublé
-        th(:class='{"sorted": sortKey === "agencyFees", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("agencyFees")') Honoraires
+        th(:class='{"sorted": sortKey === "agencyFees", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("agencyFees")') Honoraires (en €)
         th(:class='{"sorted": sortKey === "zipCode", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("zipCode")') Code Postal
-        th(:class='{"sorted": sortKey === "url", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("url")') URL de l'offre
+        th(:class='{"sorted": sortKey === "source", "ascending": sortOrder === "asc", "descending": sortOrder === "desc" }', @click='onHeadCellClick("source")') Source
+        th Lien vers l'offre
     tbody
       tr(v-for='offer in displayedOffers')
-        td {{offer.price}}
-        td {{offer.surfaceArea}}
+        td.right.aligned {{offer.price | formatPrice}}
+        td.right.aligned {{offer.surfaceArea | formatNumber}}
         td {{offer.isFurnished ? 'OUI' : 'NON'}}
-        td {{offer.agencyFees}}
+        td.right.aligned {{offer.agencyFees | formatPrice}}
         td {{offer.zipCode}}
-        td: a(:href='offer.url', target='_blank') {{offer.url}}
+        td {{offer.source}}
+        td: a(:href='offer.url', target='_blank') Voir l'offre
