@@ -93,12 +93,17 @@ export default {
 
     this.offersAPI = new SherlockHomesOffersAPI();
 
-    this.offersAPI.addObserver('new-results-count', function onNotification(count) {
+    this.offersAPI.addObserver('error', function onError(error) {
+
+      console.error(error);
+    });
+
+    this.offersAPI.addObserver('new-results-count', function onNewResults(count) {
 
       SearchStore.increaseFoundResults(count);
     });
 
-    this.offersAPI.addObserver('offer-found', function onNotification(offer) {
+    this.offersAPI.addObserver('offer-found', function onOfferFound(offer) {
 
       SearchStore.addResult(offer);
     });

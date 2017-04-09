@@ -13,10 +13,14 @@ class SherlockHomesOffersAPI extends AbstractObservable
 
         const message = JSON.parse(event.data);
 
-        if (message.type === 'error')
+        if (message.type === 'failure')
         {
           reject(message.data);
           ws.removeEventListener('message', onMessage);
+        }
+        else if (message.type === 'find-offers:error')
+        {
+          self.notifyObservers('error', message.data);
         }
         else if (message.type === 'find-offers:complete')
         {
@@ -25,12 +29,15 @@ class SherlockHomesOffersAPI extends AbstractObservable
         }
         else if (message.type === 'find-offers:new-results-count')
         {
-          // TODO: envoyer coté serveur la bonne valeur. Il faut envoyer le nombre total d'offres au lieu des nouveaux seulement
           self.notifyObservers('new-results-count', message.data);
         }
         else if (message.type === 'find-offers:offer-found')
         {
           self.notifyObservers('offer-found', message.data);
+        }
+        else
+        {
+          reject(new Error('unexpected message type from the server'));
         }
       }
       ws.addEventListener('message', onMessage);
