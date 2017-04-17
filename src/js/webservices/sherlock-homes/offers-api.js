@@ -16,7 +16,7 @@ class SherlockHomesOffersAPI extends AbstractObservable
         if (message.type === 'failure')
         {
           reject(message.data);
-          ws.removeEventListener('message', onMessage);
+          ws.addObserver('message', onMessage);
         }
         else if (message.type === 'find-offers:error')
         {
@@ -25,7 +25,7 @@ class SherlockHomesOffersAPI extends AbstractObservable
         else if (message.type === 'find-offers:complete')
         {
           resolve(message.data);
-          ws.removeEventListener('message', onMessage);
+          ws.removeObserver('message', onMessage);
         }
         else if (message.type === 'find-offers:new-results-count')
         {
@@ -40,7 +40,7 @@ class SherlockHomesOffersAPI extends AbstractObservable
           reject(new Error('unexpected message type from the server'));
         }
       }
-      ws.addEventListener('message', onMessage);
+      ws.addObserver('message', onMessage);
       ws.send(JSON.stringify({ type: 'find-offers', data: criteria }));
     });
   }
