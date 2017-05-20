@@ -20,6 +20,10 @@ export default {
       {
         match: "SHERLOCK_HOMES_API_BASE_URL",
         replacement: 'ws://localhost:8080'
+      },
+      {
+        match: "GOOGLE_ANALYTICS_ID",
+        replacement: "UA-99587993-1"
       }
     ],
     "pre-production": [
@@ -44,6 +48,10 @@ export default {
       {
         match: "SHERLOCK_HOMES_API_BASE_URL",
         replacement: 'ws://sherlock-homes.io:8080'
+      },
+      {
+        match: "GOOGLE_ANALYTICS_ID",
+        replacement: "UA-99587993-2"
       }
     ]
   }
