@@ -16,16 +16,16 @@ form.c-search-form.ui.form(:class='{"loading": isLoading}', @submit='onSubmit')
   div.field
     label
       input(type='checkbox', v-model='sources', value='century-21')
-      span Century 21
+      span &nbsp; Century 21
     label
       input(type='checkbox', v-model='sources', value='foncia')
-      span Foncia
+      span &nbsp; Foncia
     label
       input(type='checkbox', v-model='sources', value='leboncoin')
-      span Leboncoin
+      span &nbsp; Leboncoin
     label
       input(type='checkbox', v-model='sources', value='orpi')
-      span Orpi
+      span &nbsp; Orpi
   div.field
     input(type='text', placeholder='Saisissez un code postal et appuyez sur "Entrer"', maxlength='5', pattern='[0-9]{5}', @keydown.enter='onZipCodeEnter')
   div.field
