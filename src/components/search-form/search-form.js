@@ -17,6 +17,7 @@ export default {
       minSurfaceArea: null,
       offersAPI: null,
       offerType: '',
+      sources: ['century-21', 'foncia', 'leboncoin', 'orpi'],
       zipCodes: []
     };
   },
@@ -39,6 +40,7 @@ export default {
         maxPrice: this.maxPrice,
         minSurfaceArea: this.minSurfaceArea,
         offerType: this.offerType,
+        sources: this.sources,
         zipCodes: this.zipCodes
       };
 
