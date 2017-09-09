@@ -12,7 +12,7 @@ form.c-search-form.ui.form(:class='{"loading": isLoading}', @submit='onSubmit')
     select.ui.dropdown(v-model='offerType')
       option(value='', disabled) Type d'offre
       option(value='rent') Location
-      option(value='', disabled) Achat (prochainement)
+      option(value='purchase') Achat
   div.field
     label
       input(type='checkbox', v-model='sources', value='century-21')

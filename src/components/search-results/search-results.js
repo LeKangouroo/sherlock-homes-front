@@ -12,6 +12,7 @@ export default {
       foundCount: 0,
       isLoading: false,
       processedCount: 0,
+      searchCriteria: {},
       sortKey: 'price',
       sortOrder: 'asc',
       offers: []
@@ -24,6 +25,10 @@ export default {
   mounted() {
 
     console.log('search-results component mounted');
+    SearchStore.addObserver('search-criteria:update', (searchCriteria) => {
+
+      this.searchCriteria = searchCriteria;
+    });
     SearchStore.addObserver('search:start', () => {
 
       this.isLoading = true;

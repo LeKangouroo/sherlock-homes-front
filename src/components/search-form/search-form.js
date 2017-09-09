@@ -44,6 +44,7 @@ export default {
         zipCodes: this.zipCodes
       };
 
+      SearchStore.setSearchCriteria(searchCriteria);
       this.offersAPI.find(searchCriteria).then((offers) => {
 
         this.isLoading = false;
@@ -81,7 +82,7 @@ export default {
 
       const el = e.currentTarget;
 
-      if (!el.validity.valid || this.zipCodes.indexOf(el.value) > -1)
+      if (el.value.length === 0 || !el.validity.valid || this.zipCodes.indexOf(el.value) > -1)
       {
         return;
       }
