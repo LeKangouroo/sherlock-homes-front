@@ -7,6 +7,7 @@ class SearchStore extends AbstractObservable
     super();
 
     this.state = {
+      searchCriteria: {},
       progress: {
         found: 0,
         processed: 0
@@ -44,6 +45,11 @@ class SearchStore extends AbstractObservable
   endSearch()
   {
     this.notifyObservers('search:end');
+  }
+  setSearchCriteria(searchCriteria)
+  {
+    this.state.searchCriteria = searchCriteria;
+    this.notifyObservers('search-criteria:update', searchCriteria);
   }
 }
 
