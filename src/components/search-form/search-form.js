@@ -44,6 +44,7 @@ export default {
         zipCodes: this.zipCodes
       };
 
+      SearchStore.setSearchCriteria(searchCriteria);
       this.offersAPI.find(searchCriteria).then((offers) => {
 
         this.isLoading = false;
