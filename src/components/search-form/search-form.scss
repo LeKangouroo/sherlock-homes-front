@@ -4,6 +4,14 @@
 
 @include mobile-portrait-and-up
 {
+  .c-search-form
+  {
+    *::placeholder
+    {
+      color: $color-brand-1 !important;
+      opacity: 0.8;
+    }
+  }
   .c-search-form-zipcodes
   {
     display: flex;
