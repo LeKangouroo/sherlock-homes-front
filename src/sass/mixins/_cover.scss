@@ -1,0 +1,18 @@
+/**
+ * Emulates the background-size: cover behaviour any element
+ * @note: the parent element must have a relative position
+ */
+@mixin cover
+{
+  display:    block;
+  height:     auto;
+  max-height: none;
+  max-width:  none;
+  min-width:  100%;
+  min-height: 100%;
+  position:   absolute;
+    left:     50%;
+    top:      50%;
+  transform:  translateX(-50%) translateY(-50%);
+  width:      auto;
+}

@@ -1,0 +1,106 @@
+/*
+ * Breakpoints sizes
+ */
+$mq-mobile-portrait     : 320px !default;
+$mq-mobile-landscape    : 480px !default;
+$mq-tablet-portrait     : 768px !default;
+$mq-tablet-landscape    : 1024px !default;
+$mq-desktop             : 1280px !default;
+$mq-desktop-xl          : 1600px !default;
+
+/*
+ * Breakpoints list
+ * - 1st column: device
+ * - 2nd column: size
+ * - 3rd column: breakpoint name (more specific)
+ */
+$mq-list:
+    mobile  $mq-mobile-portrait   mobile-portrait,
+    mobile  $mq-mobile-landscape  mobile-landscape,
+    tablet  $mq-tablet-portrait   tablet-portrait,
+    tablet  $mq-tablet-landscape  tablet-landscape,
+    desktop $mq-desktop           desktop;
+
+@each $mq in $mq-list
+{
+  @media (min-width: nth($mq, 2))
+  {
+    body::after
+    {
+      content: "#{nth($mq, 3)} (#{nth($mq, 2)})"; // NOTE: used for debug mode only
+      display: none;
+    }
+  }
+}
+
+@if $debug == true
+{
+  body::after
+  {
+    display:     block;
+    position:    fixed;
+      bottom:    0;
+      right:     0;
+    background:  rgba(#000000, 0.8);
+    text-align:  center;
+    color:       #FFFFFF;
+    padding:     10px;
+    z-index:     1000;
+    font-size:   10px;
+    font-family: sans-serif;
+  }
+}
+
+/*
+ * Mixins
+ */
+
+@mixin mobile-portrait-and-up
+{
+  @media (min-width: $mq-mobile-portrait)
+  {
+    @content;
+  }
+}
+@mixin mobile-landscape-and-up
+{
+  @media (min-width: $mq-mobile-landscape) and (orientation: landscape)
+  {
+    @content;
+  }
+}
+@mixin tablet-portrait-and-up
+{
+  @media (min-width: $mq-tablet-portrait)
+  {
+    @content;
+  }
+}
+@mixin tablet-landscape-and-up
+{
+  @media (min-width: $mq-tablet-landscape) and (orientation: landscape)
+  {
+    @content;
+  }
+}
+@mixin desktop
+{
+  @media (min-width: $mq-desktop)
+  {
+    @content;
+  }
+}
+@mixin desktop-xl
+{
+  @media (min-width: $mq-desktop-xl)
+  {
+    @content;
+  }
+}
+@mixin print
+{
+  @media print
+  {
+    @content;
+  }
+}

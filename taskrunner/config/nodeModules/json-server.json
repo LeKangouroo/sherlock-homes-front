@@ -1,0 +1,15 @@
+{
+  "database": {
+    "posts": [
+      {
+        "id": 1,
+        "name": "my post 1"
+      },
+      {
+        "id": 2,
+        "name": "my post 2"
+      }
+    ]
+  },
+  "port": 3080
+}

@@ -1,0 +1,29 @@
+{
+  "server": {
+    "protocol": "smtps",
+    "address": "smtp.example.com"
+  },
+  "credentials": {
+    "username": "email@example.com",
+    "password": "123456"
+  },
+  "message": {
+    "sender": "email@example.com",
+    "recipients": [
+      "a@example.com"
+    ],
+    "subject": {
+      "pre-production": "Subject pre-production",
+      "production": "Subject production"
+    },
+    "template": "taskrunner/templates/email.html",
+    "data": {
+      "pre-production": {
+        "key": "value pre-production"
+      },
+      "production": {
+        "key": "value production"
+      }
+    }
+  }
+}

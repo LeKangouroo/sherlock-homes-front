@@ -1,0 +1,11 @@
+@mixin fixed-columns($items, $gutter-width)
+{
+  margin-bottom: $gutter-width;
+  margin-left: $gutter-width;
+  width: calc((100% - #{$gutter-width * ($items - 1)}) / #{$items});
+
+  &:nth-child(#{$items}n+1)
+  {
+    margin-left: 0;
+  }
+}

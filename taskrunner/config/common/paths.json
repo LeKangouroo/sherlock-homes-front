@@ -1,0 +1,66 @@
+{
+  "sources": {
+    "html": {
+      "default": [
+        "!src/html/_includes{,/**}",
+        "src/html/**/*.html"
+      ],
+      "directory": "src/html",
+      "watch": "src/html/**/*.html"
+    },
+    "images": "src/**/*.{jpg,png,gif}",
+    "instrumentedTests": "tests/instrumented-tests/specs/*.js",
+    "js": {
+      "default": "src/js/*.js",
+      "watch": [
+        "!src/{sections,components}/**/*.scss",
+        "src/{js,sections,components}/**/*"
+      ]
+    },
+    "sass": {
+        "default": "src/sass/*.scss",
+        "watch": "src/**/*.scss"
+    },
+    "svg": "src/assets/images/icons/svg/*.svg",
+    "todos": [
+      "!src/vendors/**",
+      "src/**/*.{js,jsx,html,scss,sass}"
+    ],
+    "unitTests": "tests/unit-tests/specs/*.js"
+  },
+  "builds": {
+    "css": {
+      "development": "tmp/css",
+      "distributable": "dist/css"
+    },
+    "html": {
+      "development": "tmp",
+      "distributable": "dist"
+    },
+    "images": {
+      "development": "tmp",
+      "distributable": "dist"
+    },
+    "js": {
+      "development": "tmp/js",
+      "distributable": "dist/js"
+    },
+    "svg": {
+      "development": "tmp/assets/images/sprites",
+      "distributable": "dist/assets/images/sprites"
+    },
+    "todos": {
+      "development": "tmp",
+      "distributable": "dist"
+    }
+  },
+  "static": {
+    "base": "src",
+    "source": [
+      "!src/**/*.{jpg,png,gif}",
+      "src/assets/**",
+      "src/vendors/**"
+    ],
+    "destination": "dist"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "development": {
+    "outputStyle": "expanded"
+  },
+  "distributable": {
+    "outputStyle": "compressed"
+  }
+}

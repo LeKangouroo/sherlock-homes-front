@@ -1,0 +1,1 @@
+This directory should be used if the vendor is not installable through NPM. Otherwise, use NPM.
